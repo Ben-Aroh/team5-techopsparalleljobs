@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('1-check status jenkins'){
             steps{
-                 sh '/var/lib/jenkins/masterscript.sh' 
+                 echo "testing  jenkins home"
             }
         }
         stage('2-parallel-jobs first'){
