@@ -3,7 +3,8 @@ pipeline{
     stages{
         stage('1-check status jenkins'){
             steps{
-                 echo "testing  jenkins home"
+                 echo "testing  jenkins"
+                sh 'hostname'
             }
         }
         stage('2-parallel-jobs first'){
