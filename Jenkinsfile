@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('1-check status jenkins'){
             steps{
-                 sh 'bash -x /var/lib/jenkins/masterscript.sh' 
+                 sh '/var/lib/jenkins/masterscript.sh' 
             }
         }
         stage('2-parallel-jobs first'){
@@ -36,7 +36,7 @@ pipeline{
                         label 'slave1'
                     }
                     steps{
-                        sh 'bash -x /home/jenkins/workspace/script1.sh'
+                        sh '/home/jenkins/workspace/script1.sh'
                         sh 'lscpu'
                     }
                 }
