@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('1-check status jenkins'){
             steps{
-                 echo "testing  jenkins"
+                 echo "testing jenkins"
                 sh 'hostname'
             }
         }
