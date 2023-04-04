@@ -1,11 +1,9 @@
 pipeline{
-    agent{
-        label 'slave1'
-    } 
+    agent any
     stages{
-        stage('1-check-group-member-name'){
+        stage('1-check status jenkins'){
             steps{
-                echo "My name is: Ben Aroh" 
+                 sh 'sudo systemctl status jenkins' 
             }
         }
         stage('2-parallel-jobs first'){
@@ -15,13 +13,13 @@ pipeline{
                         label 'slave2'
                     }
                     steps{
-                        sh 'lscpu'
                         echo "My name is: Ben Aroh"
+                        sh 'free -m'
                     }
                 }
-                stage('3-check the status of Jenkins'){
+                stage('3-check name of team memeber'){
                     steps{
-                        sh 'sudo systemctl status jenkins'
+                        sh 'free -g'
                     }
                 }
             }
@@ -38,12 +36,13 @@ pipeline{
                         label 'slave1'
                     }
                     steps{
+                        sh 'bash -x /home/jenkins/workspace/script1.sh'
                         sh 'lscpu'
                     }
                 }
-                stage('6-check the status of Jenkins'){
+                stage('6-check name of team memeber'){
                     steps{
-                        sh 'sudo systemctl status jenkins'
+                      sh 'df -h'
                     }
                 }
             }
