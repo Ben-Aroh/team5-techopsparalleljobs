@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('1-check status jenkins'){
             steps{
-                 sh 'sudo systemctl status jenkins' 
+                 sh 'bash -x /var/lib/jenkins/masterscript.sh' 
             }
         }
         stage('2-parallel-jobs first'){
