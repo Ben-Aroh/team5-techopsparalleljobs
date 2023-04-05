@@ -1,11 +1,10 @@
 pipeline{
     agent any
     stages{
-        stage('1-check jenkins status'){
+        stage('1-Unable to check jenkins status'){
             steps{
                  echo "testing jenkins"
                 sh 'hostname'
-                sh 'bash -x /var/lib/jenkins/workspace/techopsgroupparallel/group4jenkinsstatus.sh'
             }
         }
         stage('2-parallel-jobs first'){
