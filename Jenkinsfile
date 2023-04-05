@@ -19,7 +19,7 @@ pipeline{
                 }
                 stage('3-check disk usage'){
                     steps{
-                        sh '/home/jenkins/workspace/diskusage.sh'
+                        sh 'du -h'
                     }
                 }
             }
