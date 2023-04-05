@@ -17,9 +17,9 @@ pipeline{
                        sh '/home/jenkins/workspace/techopsgroupparallel/checkfreespacem.sh'
                     }
                 }
-                stage('3-check disk free space in giga byte'){
+                stage('3-check cpu and io statistics'){
                     steps{
-                        sh '/home/jenkins/workspace/techopsgroupparallel/checkfreespaceg.sh'
+                        sh '/home/jenkins/workspace/techopsgroupparallel/checkisostat.sh'
                     }
                 }
             }
