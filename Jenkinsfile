@@ -19,7 +19,7 @@ pipeline{
                 }
                 stage('3-check disk free space in giga byte'){
                     steps{
-                        sh '/home/jenkins/workspace/techopsgroupparallel/checkfreespacegiga.sh'
+                        sh '/home/jenkins/workspace/techopsgroupparallel/checkfreespaceg.sh'
                     }
                 }
             }
