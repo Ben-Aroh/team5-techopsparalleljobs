@@ -1,54 +1,48 @@
 pipeline{
     agent any
     stages{
-        stage('1-check status jenkins'){
+        stage('1-check jenkins status'){
             steps{
-                 echo "testing  jenkins"
+                 echo "testing jenkins"
                 sh 'hostname'
+                sh 'bash -x /var/lib/jenkins/workspace/techopsgroupparallel/group4jenkinsstatus.sh'
             }
         }
         stage('2-parallel-jobs first'){
             parallel{
-                stage('2-check operating system statistics'){
+                stage('2-check disk free space in mega byte'){
                     agent {
                         label 'slave2'
                     }
                     steps{
-                        echo "My name is: Ben Aroh"
-                        sh 'free -m'
+                       sh '/home/jenkins/workspace/techopsgroupparallel/checkfreespacem.sh'
                     }
                 }
-                stage('3-check name of team memeber'){
+                stage('3-check disk free space in giga byte'){
                     steps{
-                        sh 'free -g'
+                        sh '/home/jenkins/workspace/techopsgroupparallel/checkfreespacegiga.sh'
                     }
                 }
-            }
-        }
-                stage('4-check-group-member-name'){
-                    steps{
-                echo "My name is: Joyce Ngantcha" 
             }
         }
         stage('2-another parallel-jobs second'){
             parallel{
-                stage('5-check operating system statistics'){
+                stage('4-check lscpu'){
                     agent {
                         label 'slave1'
                     }
                     steps{
-                        sh '/home/jenkins/workspace/script1.sh'
-                        sh 'lscpu'
+                        sh '/home/jenkins/workspace/techopsgroupparallel/checklscpu.sh'
                     }
                 }
-                stage('6-check name of team memeber'){
+                stage('5-check disk free space in human readable form'){
                     steps{
-                      sh 'df -h'
+                      sh '/home/jenkins/workspace/techopsgroupparallel/checkdfh.sh'
                     }
                 }
             }
         }
-        stage('7-clossing'){
+        stage('6-clossing'){
             agent{
                 label 'slave2'
             }
