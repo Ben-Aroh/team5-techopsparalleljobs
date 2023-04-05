@@ -17,9 +17,9 @@ pipeline{
                        sh '/home/jenkins/workspace/techopsgroupparallel/checkfreespacem.sh'
                     }
                 }
-                stage('3-check cpu and io statistics'){
+                stage('3-check disk usage'){
                     steps{
-                        sh '/home/jenkins/workspace/techopsgroupparallel/checkisostat.sh'
+                        sh '/home/jenkins/workspace/diskusage.sh'
                     }
                 }
             }
